@@ -5,7 +5,9 @@
 void testrtti();
 int main()
 {
-    test_intelptr();
+    //test_intelptr();
     //testrtti();
+    //testvector();
+    test_stl();
     return 0;
 }
