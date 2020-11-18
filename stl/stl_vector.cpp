@@ -2,9 +2,14 @@
 #include <vector>
 #include <iostream>
 #include <algorithm>
+#include <chrono>
+#include <signal.h>
 using namespace std;
+void test_veccopy();
 void testvector()
 {
+    test_veccopy();
+    return;
     //capacity表示vector实际占用内存空间，size标识正在使用的空间
     //clear后size()为0，capacity()不变
     vector<int> a;
@@ -74,4 +79,25 @@ void testvector()
         cout<<x<<" ";
     }
     cout<<endl;
+}
+void test_veccopy()
+{
+    vector<int> vec(1024*1024);  
+    for(auto x = vec.begin(); x!= vec.end(); ++ x)
+    {
+        *x = x - vec.begin();
+    }
+    auto timebegin = std::chrono::steady_clock::now();
+    vector<int> vec1(20);
+    vec1 = std::move(vec);
+    auto timeend = std::chrono::steady_clock::now();
+    cout<<"copy timems: "<<chrono::duration_cast<chrono::microseconds>(timeend - timebegin).count();
+    cout<<"vec sizes: "<<vec.size()<<" "<<vec1.size()<<endl;
+
+    timebegin = std::chrono::steady_clock::now();
+    vector<int> vec2;
+    vec2.swap(vec);
+    timeend = std::chrono::steady_clock::now();
+    cout<<"copy timems: "<<chrono::duration_cast<chrono::microseconds>(timeend - timebegin).count();
+    cout<<"vec sizes: "<<vec.size()<<" "<<vec2.size()<<endl;
 }

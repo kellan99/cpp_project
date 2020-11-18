@@ -3,6 +3,7 @@
 #include <iostream>
 #include <algorithm>
 #include <string>
+#include <string.h>
 using namespace std;
 void testfind();
 void testforeach();
@@ -10,6 +11,8 @@ void testrandomshuffle();
 void testsort();
 void test_stl()
 {
+    char buf[10] = {1,2,3,4,5,6,7,8};
+    memcpy(buf,"asdfghj",strlen("asdfghj"));
     //testfind();
     //testforeach();
     //testrandomshuffle();
@@ -27,7 +30,7 @@ void testsort()
     for_each(str.begin(), str.end(),[](char ch){cout<<ch<<" ";});
 
     str= "asdfghjqweryt123";
-    sort(str.begin(), str.end(),[](char c1, char c2){return c1>=c2;});
+    sort(str.begin(), str.end(),[](char &c1, char &c2){return c1>=c2;});
     cout<<endl<<"sort(str.begin(), str.end(),[](char c1, char c2){return c1>=c2;});"<<endl;
     for_each(str.begin(), str.end(),[](char ch){cout<<ch<<" ";});
 }
@@ -35,7 +38,7 @@ void testsort()
 void testfind()
 {
     vector<int> a(3);
-    a[0] = 1;a[1]=10;a[2]=3;
+    a[0]=1;a[1]=10;a[2]=3;
     //find找到时返回指定值对应的迭代器值，未找到返回容器end()迭代器
     vector<int>::iterator itfind = find(a.begin(), a.end(),11);
     if(itfind == a.end())
