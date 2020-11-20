@@ -4,11 +4,13 @@
 #include "common/consexpr.h"
 #include "common/task_mission.h"
 #include "template/looptemplate.h"
+#include "common/class_common.h"
 #include <stdlib.h>
 void testrtti();
 int main()
 {
-    testtemplate();
+    test_cla();
+    //testtemplate();
     //test_task_about();
     //test_intelptr();
     //testrtti();

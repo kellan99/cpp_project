@@ -43,4 +43,8 @@ void testtemplate()
     cout<<"after :"<<na.name<<": "<<na.val<<", "<<nb.name<<": "<<nb.val<<endl;
 
     printloop(1,"hello");
+
+    //根据值(表达式)的类型,定义变量。auto要求有初始值
+    decltype (na.name) x = "aaaaaaaaaa";
+    cout<<x<<endl;
 }
