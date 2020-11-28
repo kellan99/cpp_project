@@ -42,4 +42,11 @@ void test_cla()
     cla cl2(cl);
     cla cl3(10);
     cl3 = cl;
+
+    cla cldata;
+    cldata.data = 10;
+    cla_derive dcladata;
+    dcladata.arr = 20;
+    cldata*dcladata;
+    cout<<"friend data val:"<<cldata.data<<endl;
 }
