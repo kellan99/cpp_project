@@ -1,10 +1,5 @@
 #ifndef CLASS_COMMON_H
 #define CLASS_COMMON_H
-class cla_derive
-{
-    public:
-        int arr;
-};
 class cla
 {
     public:
@@ -18,12 +13,17 @@ class cla
         ~cla();
         cla & operator=(const cla &cl);
         //因为友元传递的是引用，所以调用过友元重载后，cla对象的data成员值变了
-        friend void operator* (class cla &dcla, const cla_derive &cl)
-        {
-            dcla.data = cl.arr;
-        }
+        //friend void operator* (class cla &dcla, const cla_derive &cl)
+        //{
+        //    dcla.data = cl.arr;
+        //}
 };
-
+class deive: public cla
+{
+    public:
+        deive();
+        int arr;
+};
 
 void test_cla();
 #endif

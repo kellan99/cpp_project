@@ -28,25 +28,27 @@ cla::cla(int val)
     cout<<"copy val construct"<<endl;
 }
 
+deive::deive()
+{
+    cout<<"call devie construct"<<endl;
+}
+
 void test_class(cla cl)
 {
 }
 
 void test_cla()
 {
-    cla cl;
-    test_class(cl);
-    test_class(1);
+    //cla cl;
+    //test_class(cl);
+    //test_class(1);
+//
+    //cla cl1 = cl;
+    //cla cl2(cl);
+    //cla cl3(10);
+    //cl3 = cl;
 
-    cla cl1 = cl;
-    cla cl2(cl);
-    cla cl3(10);
-    cl3 = cl;
-
-    cla cldata;
-    cldata.data = 10;
-    cla_derive dcladata;
-    dcladata.arr = 20;
-    cldata*dcladata;
-    cout<<"friend data val:"<<cldata.data<<endl;
+    //cla cldata;
+    //cldata.data = 10;
+    deive dcladata;
 }
